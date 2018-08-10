@@ -6,7 +6,7 @@
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
         </span>
-        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="username" />
+        <el-input name="email" type="text" v-model="loginForm.email" autoComplete="on" placeholder="email" />
       </el-form-item>
       <el-form-item prop="password">
         <span class="svg-container">
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       loginForm: {
-        username: '',
+        email: '',
         password: ''
       },
       loading: false
@@ -42,11 +42,15 @@ export default {
   },
   methods: {
     handleLogin() {
-      this.loading = true
-      this.$store.dispatch('Login', this.loginForm).then(() => {
-        this.loading = false
-        this.$router.push({ path: '/' })
-      })
+      this.$store
+        .dispatch('Login', this.loginForm)
+        .then(() => {
+          this.loading = false
+          this.$router.push({ path: '/' })
+        })
+        .catch(() => {
+          this.loading = false
+        })
     }
   }
 }
@@ -70,10 +74,10 @@ $light_gray: #eee;
       padding: 12px 5px 12px 15px;
       color: $light_gray;
       height: 47px;
-      // &:-webkit-autofill {
-      //   // -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
-      //   // -webkit-text-fill-color: #fff !important;
-      // }
+      &:-webkit-autofill {
+        // -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
+        // -webkit-text-fill-color: #fff !important;
+      }
     }
   }
   .el-form-item {
