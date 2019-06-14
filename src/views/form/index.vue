@@ -11,10 +11,10 @@
         <el-input v-model="form.email" disabled="disabled"></el-input>
       </el-form-item>
       <el-form-item label="创建时间">
-        <el-input v-model="form.create_time" disabled="disabled"></el-input>
+        <el-input v-model="form.created_at" disabled="disabled"></el-input>
       </el-form-item>
       <el-form-item label="更新时间">
-        <el-input v-model="form.update_time" disabled="disabled"></el-input>
+        <el-input v-model="form.updated_at" disabled="disabled"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">Create</el-button>

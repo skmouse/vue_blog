@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getName() {
   return request({
-    url: '/api/users/getinfo',
+    url: '/api/users/getInfo',
     method: 'get'
   })
 }
